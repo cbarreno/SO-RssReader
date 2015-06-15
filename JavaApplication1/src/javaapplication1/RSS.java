@@ -10,17 +10,18 @@ package javaapplication1;
  * @author Cris
  */
 public class RSS {
+
     private String title;
     private String description;
     private String link;
     private String author;
     private String guid;
     private String pubDate;
-    
+
     @Override
     public String toString() {
-        return "\n Item [Title:" + title + "]\n" + "[ Description:" + description + ", Link:" + link + ", Author:" + author + ", guid:" + guid + ", PubDate:" + pubDate +"]";
-   }
+        return "\n Item [Title:" + title + "]\n" + "[ Description:" + description + ", Link:" + link + ", Author:" + author + ", guid:" + guid + ", PubDate:" + pubDate + "]";
+    }
 
     public String getTitle() {
         return title;
@@ -69,6 +70,5 @@ public class RSS {
     public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
     }
-    
-    
+
 }

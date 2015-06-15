@@ -13,29 +13,30 @@ import java.util.List;
  * @author Cris
  */
 public class Feed {
+
     private String title;
     private String link;
     private String description;
     private String pubDate;
     private String language;
     private String copyright;
-    
+
     final List<RSS> entries = new ArrayList<RSS>();
-    
+
     public Feed(String title, String link, String description, String language, String copyright, String pubDate) {
         this.title = title;
         this.link = link;
-        this.description = description;    
+        this.description = description;
         this.pubDate = pubDate;
-        this.language=language;
-        this.copyright=copyright;
+        this.language = language;
+        this.copyright = copyright;
     }
-    
+
     @Override
     public String toString() {
         return "\n FEED [Copyright:" + copyright + ", Description:" + description + ", Language:" + language + ", Link:" + link + ", PubDate:" + pubDate + ", Title:" + title + "]\n";
     }
-    
+
     public List<RSS> getMessages() {
         return entries;
     }
@@ -87,7 +88,5 @@ public class Feed {
     public void setCopyright(String copyright) {
         this.copyright = copyright;
     }
-    
-    
-    
+
 }
