@@ -15,7 +15,7 @@ public class JavaApplication1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        GUI gui=new GUI();
         long initialTime = System.currentTimeMillis();        
         
         XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
