@@ -155,17 +155,15 @@ public class GUI extends javax.swing.JFrame {
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
         url =Texturl.getText();
         XmlParserRSS parser1 = new XmlParserRSS(url);
+        parser1.start();
         
-        Feed feed1 = parser1.readFeed();
-        
-        
-        System.out.println(feed1);
-        for (RSS message : feed1.getMessages()) {
+        while (!JavaApplication1.pilaFeed.isEmpty()){
+            RSS message;
+            message = (RSS)JavaApplication1.pilaFeed.pop();            
             Texto.append(message.toString());
             Texto.append("\n");
-            System.out.println(message);
 
-        }        
+        }
         
         
         

@@ -19,7 +19,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
-public class XmlParserRSS {
+public class XmlParserRSS extends Thread{
 
     private URL url;
  
@@ -122,5 +122,20 @@ public class XmlParserRSS {
             caracter = event.asCharacters().getData();
         }
         return caracter;
+    }
+    
+    public synchronized void addStack(Feed feed){
+        for (RSS message : feed.getMessages()) {
+            JavaApplication1.pilaFeed.push(message);
+        }
+    }
+    
+    public void run(){
+        XmlParserRSS parser1 = new XmlParserRSS(url.toString());
+        Feed feed1 = parser1.readFeed();
+        System.out.println("Ingreso al hilo");
+        addStack(feed1);
+        System.out.println("Terminó el hilo");
+        System.out.println(JavaApplication1.pilaFeed.size());
     }
 }

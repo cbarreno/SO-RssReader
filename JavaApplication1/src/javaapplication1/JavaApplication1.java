@@ -5,6 +5,8 @@
  */
 package javaapplication1;
 
+import java.util.Stack;
+
 /**
  *
  * @author Cris
@@ -14,7 +16,9 @@ public class JavaApplication1 {
     /**
      * @param args the command line arguments
      */
+    public static Stack pilaFeed;
     public static void main(String[] args) {
+        pilaFeed = new Stack();
         GUI gui=new GUI();
         // long initialTime = System.currentTimeMillis();        
         
