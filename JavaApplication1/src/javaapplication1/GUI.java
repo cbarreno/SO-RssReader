@@ -24,6 +24,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         setTitle("Lector RSS");
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -42,6 +43,7 @@ public class GUI extends javax.swing.JFrame {
         Texto = new javax.swing.JTextArea();
         Boton_refrescar = new javax.swing.JButton();
         Texturl = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -51,6 +53,8 @@ public class GUI extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Panel.setBackground(new java.awt.Color(255, 255, 204));
 
         nombrerss.setText("Ingrese RSS:");
 
@@ -72,6 +76,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
@@ -82,24 +93,32 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addComponent(nombrerss)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Texturl, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Boton_refrescar))
+                        .addComponent(Texturl, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton1))
                     .addComponent(scroll))
                 .addContainerGap())
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(212, 212, 212)
+                .addComponent(Boton_refrescar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Boton_refrescar)
                     .addComponent(nombrerss, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Texturl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                    .addComponent(Texturl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addComponent(Boton_refrescar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jMenuBar1.setForeground(new java.awt.Color(51, 204, 255));
 
         jMenu1.setText("Inicio");
 
@@ -153,18 +172,20 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
-        url =Texturl.getText();
-        XmlParserRSS parser1 = new XmlParserRSS(url);
-        parser1.start();
         
-        while (!JavaApplication1.pilaFeed.isEmpty()){
-            RSS message;
-            message = (RSS)JavaApplication1.pilaFeed.pop();            
-            Texto.append(message.toString());
-            Texto.append("\n");
+        for(String link:JavaApplication1.ListURL )
+        {
+            url=link;        
+            XmlParserRSS parser1 = new XmlParserRSS(url);
+            parser1.start();
+            while (!JavaApplication1.pilaFeed.isEmpty()){
+                RSS message;
+                message = (RSS)JavaApplication1.pilaFeed.pop();            
+                Texto.append(message.toString());
+                Texto.append("\n");
 
-        }
-        
+            }
+     }   
         
         
     }//GEN-LAST:event_Boton_refrescarActionPerformed
@@ -215,6 +236,13 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TexturlActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setBackground(Color.yellow);
+        url =Texturl.getText();
+        JavaApplication1.ListURL.add(url);    
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +284,7 @@ public class GUI extends javax.swing.JFrame {
     private static javax.swing.JPanel Panel;
     private static javax.swing.JTextArea Texto;
     private static javax.swing.JTextField Texturl;
+    private static javax.swing.JButton jButton1;
     private static javax.swing.JMenu jMenu1;
     private static javax.swing.JMenu jMenu2;
     private static javax.swing.JMenuBar jMenuBar1;

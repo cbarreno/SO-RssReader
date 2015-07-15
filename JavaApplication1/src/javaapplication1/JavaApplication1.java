@@ -5,6 +5,7 @@
  */
 package javaapplication1;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -16,9 +17,14 @@ public class JavaApplication1 {
     /**
      * @param args the command line arguments
      */
+       
     public static Stack pilaFeed;
+    public static LinkedList<String> ListURL;
     public static void main(String[] args) {
+        ListURL=new LinkedList<String>();
         pilaFeed = new Stack();
+        
+        //LinkedList 
         GUI gui=new GUI();
         // long initialTime = System.currentTimeMillis();        
         
