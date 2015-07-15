@@ -16,25 +16,25 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         GUI gui=new GUI();
-        long initialTime = System.currentTimeMillis();        
+        // long initialTime = System.currentTimeMillis();        
         
-        XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
-        XmlParserRSS parser2 = new XmlParserRSS("http://rss.cnn.com/rss/edition.rss");        
+        // XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
+        // XmlParserRSS parser2 = new XmlParserRSS("http://rss.cnn.com/rss/edition.rss");        
         
-        Feed feed1 = parser1.readFeed();
-        Feed feed2 = parser2.readFeed();
+        // Feed feed1 = parser1.readFeed();
+        // Feed feed2 = parser2.readFeed();
         
-        System.out.println(feed1);
-        for (RSS message : feed1.getMessages()) {
-            System.out.println(message);
+        // System.out.println(feed1);
+        // for (RSS message : feed1.getMessages()) {
+            // System.out.println(message);
 
-        }        
+        // }        
         
-        System.out.println(feed2);
-        for (RSS message2 : feed2.getMessages()) {
-            System.out.println(message2);
+        // System.out.println(feed2);
+        // for (RSS message2 : feed2.getMessages()) {
+            // System.out.println(message2);
 
-        }
+        // }
 
     }
 

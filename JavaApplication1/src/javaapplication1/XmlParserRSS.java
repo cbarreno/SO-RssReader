@@ -5,6 +5,10 @@
  */
 package javaapplication1;
 
+/**
+ *
+ * @author adrian
+ */
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -18,7 +22,7 @@ import javax.xml.stream.events.XMLEvent;
 public class XmlParserRSS {
 
     private URL url;
-
+ 
     public XmlParserRSS(String feedUrl) {
         try {
             this.url = new URL(feedUrl);

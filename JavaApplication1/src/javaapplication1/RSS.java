@@ -7,7 +7,7 @@ package javaapplication1;
 
 /**
  *
- * @author Cris
+ * @author adrian
  */
 public class RSS {
 
@@ -20,7 +20,7 @@ public class RSS {
 
     @Override
     public String toString() {
-        return "\n Item [Title:" + title + "]\n" + "[ Description:" + description + ", Link:" + link + ", Author:" + author + ", guid:" + guid + ", PubDate:" + pubDate + "]";
+        return "\n Item [Title:" + title + "]\n" + "[ Description:" + description + ",\n Link:" + link + ",\n Author:" + author + ",\n guid:" + guid + ",\n PubDate:" + pubDate + "]";
     }
 
     public String getTitle() {

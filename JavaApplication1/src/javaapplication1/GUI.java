@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
  * @author adrian
  */
 public class GUI extends javax.swing.JFrame {
-
+    String url;
     /**
      * Creates new form GUI
      */
@@ -37,11 +37,11 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         Panel = new javax.swing.JPanel();
-        url = new javax.swing.JLabel();
+        nombrerss = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         Texto = new javax.swing.JTextArea();
         Boton_refrescar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        Texturl = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -52,7 +52,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        url.setText("Ingrese RSS:");
+        nombrerss.setText("Ingrese RSS:");
 
         Texto.setColumns(20);
         Texto.setRows(5);
@@ -65,10 +65,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("http://");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Texturl.setText("http://");
+        Texturl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TexturlActionPerformed(evt);
             }
         });
 
@@ -80,9 +80,9 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addComponent(url)
+                        .addComponent(nombrerss)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                        .addComponent(Texturl, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(Boton_refrescar))
                     .addComponent(scroll))
@@ -94,8 +94,8 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_refrescar)
-                    .addComponent(url, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombrerss, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texturl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addContainerGap())
@@ -153,7 +153,22 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
-        // TODO add your handling code here:
+        url =Texturl.getText();
+        XmlParserRSS parser1 = new XmlParserRSS(url);
+        
+        Feed feed1 = parser1.readFeed();
+        
+        
+        System.out.println(feed1);
+        for (RSS message : feed1.getMessages()) {
+            Texto.append(message.toString());
+            Texto.append("\n");
+            System.out.println(message);
+
+        }        
+        
+        
+        
     }//GEN-LAST:event_Boton_refrescarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -198,20 +213,20 @@ public class GUI extends javax.swing.JFrame {
         opciones opcion= new opciones();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TexturlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TexturlActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TexturlActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+/*        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -235,13 +250,14 @@ public class GUI extends javax.swing.JFrame {
                 new GUI().setVisible(true);
                 Texto.setText("hola q hace");
             }
-        } );*/
-    }
+        } );
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton Boton_refrescar;
     private static javax.swing.JPanel Panel;
     private static javax.swing.JTextArea Texto;
+    private static javax.swing.JTextField Texturl;
     private static javax.swing.JMenu jMenu1;
     private static javax.swing.JMenu jMenu2;
     private static javax.swing.JMenuBar jMenuBar1;
@@ -249,8 +265,7 @@ public class GUI extends javax.swing.JFrame {
     private static javax.swing.JMenuItem jMenuItem2;
     private static javax.swing.JMenuItem jMenuItem3;
     private static javax.swing.JMenuItem jMenuItem4;
-    private static javax.swing.JTextField jTextField1;
+    private static javax.swing.JLabel nombrerss;
     private static javax.swing.JScrollPane scroll;
-    private static javax.swing.JLabel url;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,10 @@
  */
 package javaapplication1;
 
+/**
+ *
+ * @author adrian
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +38,7 @@ public class Feed {
 
     @Override
     public String toString() {
-        return "\n FEED [Copyright:" + copyright + ", Description:" + description + ", Language:" + language + ", Link:" + link + ", PubDate:" + pubDate + ", Title:" + title + "]\n";
+        return "\n FEED [Copyright:" + copyright + ",\n Description:" + description + ",\n Language:" + language + ",\n Link:" + link + ",\n PubDate:" + pubDate + ",\n Title:" + title + "]\n";
     }
 
     public List<RSS> getMessages() {
@@ -90,3 +94,4 @@ public class Feed {
     }
 
 }
+
