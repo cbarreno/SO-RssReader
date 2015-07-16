@@ -6,7 +6,6 @@
 package javaapplication1;
 
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -20,14 +19,14 @@ public class JavaApplication1 {
      */
        
     public static Stack pilaFeed;
-    public static Queue ListURL;
+    public static LinkedList<String> ListURL;
     public static void main(String[] args) {
         ListURL=new LinkedList<String>();
         pilaFeed = new Stack();
         
         //LinkedList 
         GUI gui=new GUI();
-        // long initialTime = System.currentTimeMillis();        
+        // long initialTime = System.currentTimeMillis();       http://www.20minutos.es/rss/artrend
         
         // XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
         // XmlParserRSS parser2 = new XmlParserRSS("http://rss.cnn.com/rss/edition.rss");        
