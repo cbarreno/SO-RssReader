@@ -172,20 +172,177 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
-        
-        for(String link:JavaApplication1.ListURL )
-        {
-            url=link;        
-            XmlParserRSS parser1 = new XmlParserRSS(url);
-            parser1.start();
-            while (!JavaApplication1.pilaFeed.isEmpty()){
+        XmlParserRSS parser1=null,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null;
+        int j=0;
+        int i = JavaApplication1.ListURL.size();
+        System.out.println(i);
+        if (!JavaApplication1.ListURL.isEmpty()){
+            switch (i){
+                case 1:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                case 2:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                case 3:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+    
+                case 4:
+
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                case 5:
+
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+
+                case 6:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+                        parser6.start();
+                case 7:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser7 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+                        parser6.start();
+                        parser7.start();
+                case 8:
+                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser7 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser8 = new XmlParserRSS(link);
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+                        parser6.start();
+                        parser7.start();
+                        parser8.start();
+                case 9:
+                    for(String link:JavaApplication1.ListURL )
+                    {
+                        switch(j){
+                            case 0:
+                                parser1 = new XmlParserRSS(link);
+                            case 1:
+                                parser2 = new XmlParserRSS(link);
+                            case 2:
+                                parser3 = new XmlParserRSS(link);
+                            case 3:
+                                parser4 = new XmlParserRSS(link);
+                            case 4:
+                                parser5 = new XmlParserRSS(link);
+                            case 5:
+                                parser6 = new XmlParserRSS(link);
+                            case 6:
+                                parser7 = new XmlParserRSS(link);
+                            case 7:
+                                parser8 = new XmlParserRSS(link);
+                            case 8:
+                                parser9 = new XmlParserRSS(link);
+                        }
+                        j++;
+                    }
+                    parser1.start();
+                    parser2.start();
+                    parser3.start();
+                    parser4.start();
+                    parser5.start();
+                    parser6.start();
+                    parser7.start();
+                    parser8.start();
+                    parser9.start();
+                case 10:
+                    for(String link:JavaApplication1.ListURL )
+                    {
+                        switch(j){
+                            case 0:
+                                parser1 = new XmlParserRSS(link);
+                            case 1:
+                                parser2 = new XmlParserRSS(link);
+                            case 2:
+                                parser3 = new XmlParserRSS(link);
+                            case 3:
+                                parser4 = new XmlParserRSS(link);
+                            case 4:
+                                parser5 = new XmlParserRSS(link);
+                            case 5:
+                                parser6 = new XmlParserRSS(link);
+                            case 6:
+                                parser7 = new XmlParserRSS(link);
+                            case 7:
+                                parser8 = new XmlParserRSS(link);
+                            case 8:
+                                parser9 = new XmlParserRSS(link);
+                            case 9:
+                                parser10 = new XmlParserRSS(link);
+                        }
+                        j++;
+                    }
+                    parser1.start();
+                    parser2.start();
+                    parser3.start();
+                    parser4.start();
+                    parser5.start();
+                    parser6.start();
+                    parser7.start();
+                    parser8.start();
+                    parser9.start();
+                    parser10.start();
+                }
+            }
+           
+        System.out.println(JavaApplication1.ListURL.size());
+        while (!JavaApplication1.pilaFeed.isEmpty()){
                 RSS message;
                 message = (RSS)JavaApplication1.pilaFeed.pop();            
                 Texto.append(message.toString());
                 Texto.append("\n");
 
             }
-     }   
         
         
     }//GEN-LAST:event_Boton_refrescarActionPerformed

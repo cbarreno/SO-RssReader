@@ -6,6 +6,7 @@
 package javaapplication1;
 
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -19,7 +20,7 @@ public class JavaApplication1 {
      */
        
     public static Stack pilaFeed;
-    public static LinkedList<String> ListURL;
+    public static Queue ListURL;
     public static void main(String[] args) {
         ListURL=new LinkedList<String>();
         pilaFeed = new Stack();
