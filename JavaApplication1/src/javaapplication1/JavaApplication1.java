@@ -17,19 +17,20 @@ public class JavaApplication1 {
     /**
      * @param args the command line arguments
      */
-       
     public static Stack pilaFeed;
+    public static int tiempoConexion = 30;
+    public static boolean cambioTiempo = false;
+    public static boolean cronometroActivo = true;
     public static LinkedList<String> ListURL;
     public static void main(String[] args) {
         ListURL=new LinkedList<String>();
         pilaFeed = new Stack();
         
-        //LinkedList 
         GUI gui=new GUI();
         // long initialTime = System.currentTimeMillis();       http://www.20minutos.es/rss/artrend
         
         // XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
-        // XmlParserRSS parser2 = new XmlParserRSS("http://rss.cnn.com/rss/edition.rss");        
+        // XmlParserRSS parser2 = new XmlParserRSS("i no ");        
         
         // Feed feed1 = parser1.readFeed();
         // Feed feed2 = parser2.readFeed();

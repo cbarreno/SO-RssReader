@@ -20,7 +20,7 @@ public class RSS {
 
     @Override
     public String toString() {
-        return "\n Item [Title:" + title + "]\n" + "[ Description:" + description + ",\n Link:" + link + ",\n Author:" + author + ",\n guid:" + guid + ",\n PubDate:" + pubDate + "]";
+        return "\n[Title:" + title + "]\n" + "[ Description:" + description + ",\n Link:" + link + ",\n Author:" + author + ",\n guid:" + guid + ",\n PubDate:" + pubDate + "]";
     }
 
     public String getTitle() {

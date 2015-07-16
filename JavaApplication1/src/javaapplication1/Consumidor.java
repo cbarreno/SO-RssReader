@@ -5,30 +5,40 @@
  */
 package javaapplication1;
 
+import static java.lang.Thread.sleep;
+import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author adrian
  */
 public class Consumidor extends Thread{
-    
-    
-    public synchronized void getData(){
-        while (!JavaApplication1.pilaFeed.isEmpty()){
-                    RSS message;
-                    message = (RSS)JavaApplication1.pilaFeed.pop();            
-                    GUI.Texto.append(message.toString());
-                    GUI.Texto.append("\n");
-
-                }
+    private ProductorConsumidor pc;
+    private Stack pilaCon;
+    public Consumidor(ProductorConsumidor pc){
+        this.pc = pc;
     }
     
     @Override
     public void run(){
-        System.out.println("Inicio hilo consumidor");
-        if (this.isInterrupted())
-            System.out.println("Está interrumpido");
-        getData();
-        System.out.println("Fin hilo consumidor");
+        
+        //System.out.println("Inicio hilo consumidor");
+        pilaCon = pc.getData();
+        System.out.println("Nueva FEED");
+        while (!pilaCon.isEmpty()){
+            RSS message;
+            message = (RSS)pilaCon.pop();
+            GUI.Texto.append(message.toString());
+            GUI.Texto.append("\n");
+        }
+        try {
+           sleep(400);
+       } catch (InterruptedException ex) {
+           Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        //System.out.println("Fin hilo consumidor");
     }
     
 }

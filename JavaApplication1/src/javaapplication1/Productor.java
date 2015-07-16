@@ -5,7 +5,8 @@
  */
 package javaapplication1;
 
-import sun.awt.windows.ThemeReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,23 +14,24 @@ import sun.awt.windows.ThemeReader;
  */
 public class Productor extends Thread{
     private String url;
-    public Productor(String url){
+    ProductorConsumidor pc;
+    public Productor(String url,ProductorConsumidor pc){
         this.url = url;
+        this.pc = pc;
     }
     
-    public synchronized void addStack(Feed feed){
-        for (RSS message : feed.getMessages()) {
-            JavaApplication1.pilaFeed.push(message);
-        }
-    }
+    
 
     @Override
     public void run(){
-        System.out.println("Inicio hilo prodcutor");
-        XmlParserRSS parser = new XmlParserRSS(url);
-        Feed feed = parser.readFeed();
-        addStack(feed);
-        System.out.println("Fin de Hilo productor");       
-                
+            //Verifico si es personal que esta es jefe o no            
+                //System.out.println("Inicio hilo prodcutor");
+                pc.addStack(url);
+                try {
+                    sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //System.out.println("Fin de Hilo productor"); 
+            }         
     }
-}
