@@ -5,8 +5,11 @@
  */
 package javaapplication1;
 
+import com.sun.corba.se.spi.orbutil.threadpool.ThreadPool;
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,280 +22,53 @@ import javax.swing.JTextArea;
  */
 public class GUI extends JFrame {
     String url;
-    Cronometro cronometro;
+    
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
-        cronometro = new Cronometro();
         setTitle("Lector RSS");
         setLocationRelativeTo(null);
         setVisible(true);
+        //iniciarCronometro();
     }
-        public void MostrarFeed(){
-        Productor parser1=null,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null;
-        Consumidor consu1=null,consu2=null,consu3=null,consu4=null,consu5=null,consu6=null,consu7=null,consu8=null,consu9=null,consu10=null;
+    public static void iniciarCronometro() {
+        JavaApplication1.cronometroActivo = true;
+        JavaApplication1.cronometro = new Cronometro();
+        JavaApplication1.cronometro.start();
+    }
+    public static void pararCronometro(){
+        JavaApplication1.cronometroActivo = false;
+    }
+
+    public static void MostrarFeed(){
+        if(!JavaApplication1.estaActivo){
+            iniciarCronometro();
+            JavaApplication1.estaActivo = true;
+        }
+        Texto.setText("");
+        Productor parser1=null/*,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null*/;
+        Consumidor consu1=null/*,consu2=null,consu3=null,consu4=null,consu5=null,consu6=null,consu7=null,consu8=null,consu9=null,consu10=null*/;
         ProductorConsumidor pc;
         LinkedList<String> copiaList;
         String link;
         int i = JavaApplication1.ListURL.size();
         System.out.println(i);
-        pc = new ProductorConsumidor(JavaApplication1.pilaFeed);
+        pc = new ProductorConsumidor(JavaApplication1.colaFeed);
         copiaList = (LinkedList < String >)JavaApplication1.ListURL.clone();
+        ExecutorService produc = Executors.newFixedThreadPool(copiaList.size());
+        ExecutorService consu = Executors.newFixedThreadPool(copiaList.size());
         if (!copiaList.isEmpty()){
-            switch (i){
-                case 1:
-                        link = copiaList.remove();
-                        parser1 = new Productor(link,pc);
-                        consu1 = new Consumidor(pc);
-                        parser1.start();
-                        consu1.start();
-                        break;  
-                case 2:
-                        link = copiaList.remove();
-                        parser1 = new Productor(link,pc);
-                        link = copiaList.remove();
-                        parser2 = new Productor(link,pc);
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        parser1.start();
-                        parser2.start();
-                        consu1.start();
-                        consu2.start();
-                        
-                        break;  
-                case 3:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        break;      
-                case 4:
-
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        break;  
-                case 5:
-
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        
-                        break;  
-                case 6:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser6 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        parser6.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu6=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        consu6.start();
-                        break;  
-                case 7:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser6 = new Productor(copiaList.remove(),pc);
-                        parser7 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        parser6.start();
-                        parser7.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu6=new Consumidor(pc);
-                        consu7=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        consu6.start();
-                        consu7.start();
-                        break;  
-                case 8:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser6 = new Productor(copiaList.remove(),pc);
-                        parser7 = new Productor(copiaList.remove(),pc);
-                        parser8 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        parser6.start();
-                        parser7.start();
-                        parser8.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu6=new Consumidor(pc);
-                        consu7=new Consumidor(pc);
-                        consu8=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        consu6.start();
-                        consu7.start();
-                        consu8.start();
-                        break;  
-                case 9:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser6 = new Productor(copiaList.remove(),pc);
-                        parser7 = new Productor(copiaList.remove(),pc);
-                        parser8 = new Productor(copiaList.remove(),pc);
-                        parser9 = new Productor(copiaList.remove(),pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        parser6.start();
-                        parser7.start();
-                        parser8.start();
-                        parser9.start();
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu6=new Consumidor(pc);
-                        consu7=new Consumidor(pc);
-                        consu8=new Consumidor(pc);
-                        consu9=new Consumidor(pc);
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        consu6.start();
-                        consu7.start();
-                        consu8.start();
-                        consu9.start();
-                        break;  
-                case 10:
-                        parser1 = new Productor(copiaList.remove(),pc);
-                        parser2 = new Productor(copiaList.remove(),pc);
-                        parser3 = new Productor(copiaList.remove(),pc);
-                        parser4 = new Productor(copiaList.remove(),pc);
-                        parser5 = new Productor(copiaList.remove(),pc);
-                        parser6 = new Productor(copiaList.remove(),pc);
-                        parser7 = new Productor(copiaList.remove(),pc);
-                        parser8 = new Productor(copiaList.remove(),pc);
-                        parser9 = new Productor(copiaList.remove(),pc);
-                        parser10 = new Productor(copiaList.remove(),pc);
-                        consu1=new Consumidor(pc);
-                        consu2=new Consumidor(pc);
-                        consu3= new Consumidor(pc);
-                        consu4=new Consumidor(pc);
-                        consu5=new Consumidor(pc);
-                        consu6=new Consumidor(pc);
-                        consu7=new Consumidor(pc);
-                        consu8=new Consumidor(pc);
-                        consu9=new Consumidor(pc);
-                        consu10=new Consumidor(pc);
-                        parser1.start();
-                        parser2.start();
-                        parser3.start();
-                        parser4.start();
-                        parser5.start();
-                        parser6.start();
-                        parser7.start();
-                        parser8.start();
-                        parser9.start();
-                        parser10.start();
-                        consu1.start();
-                        consu2.start();
-                        consu3.start();
-                        consu4.start();
-                        consu5.start();
-                        consu6.start();
-                        consu7.start();
-                        consu8.start();
-                        consu9.start();
-                        consu10.start();
-                        break; 
-                    }
+            for(String url: copiaList){
+                parser1 = new Productor(url, pc);
+                consu1 = new Consumidor(pc);
+                produc.execute(parser1);
+                consu.execute(consu1);
             }
-
         }
+
+}
 
     /*
      * This method is called from within the constructor to initialize the form.
@@ -504,8 +280,8 @@ public class GUI extends JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        pararCronometro();
         opciones opcion= new opciones();
-          
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

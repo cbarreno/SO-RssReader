@@ -111,8 +111,7 @@ public class opciones extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JavaApplication1.tiempoConexion = tiempo_conexion.getValue();
-        JavaApplication1.cronometroActivo = false;
-        JavaApplication1.cambioTiempo = true;
+        GUI.iniciarCronometro();
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

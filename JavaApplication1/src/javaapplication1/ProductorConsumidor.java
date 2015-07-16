@@ -5,40 +5,40 @@
  */
 package javaapplication1;
 
-import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sun.misc.Queue;
 
 /**
  *
  * @author adrian
  */
 public class ProductorConsumidor{
-    private Stack pila;
+    private Queue cola;
     private boolean disponible=false;
-    public ProductorConsumidor(Stack pila){
-        this.pila = pila;
+    public ProductorConsumidor(Queue cola){
+        this.cola = cola;
     }
     
-    public synchronized  Stack getData(){
+    public synchronized  Queue getData(){
         while(!disponible){
             try {
-                //System.out.println("Dormido hilo Consumidor");
+                System.out.println("Dormido hilo Consumidor");
                 wait();            
             } catch (InterruptedException ex) {
                 //Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        //System.out.println("Despierto hilo consumidor");
+        System.out.println("Despierto hilo consumidor");
         disponible=false;
         notify();
-        return pila;
+        return cola;
     }
     
-    public synchronized void addStack(String url){
+    public synchronized void addQueue(String url){
         while(disponible){
             try {
-                //System.out.println("Dormido hilo productor");
+                System.out.println("Dormido hilo productor");
                 wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(ProductorConsumidor.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,10 +47,10 @@ public class ProductorConsumidor{
         XmlParserRSS parser1 = new XmlParserRSS(url);
         Feed feed = parser1.readFeed();
         for (RSS message : feed.getMessages()) {
-            pila.push(message);
+            cola.enqueue(message);
         }
         disponible = true;
-        //System.out.println("Despierto hilo productor");
+        System.out.println("Despierto hilo productor");
         notify();
         
     }

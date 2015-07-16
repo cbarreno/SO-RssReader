@@ -25,13 +25,13 @@ public class Productor extends Thread{
     @Override
     public void run(){
             //Verifico si es personal que esta es jefe o no            
-                //System.out.println("Inicio hilo prodcutor");
-                pc.addStack(url);
+                System.out.println("Inicio hilo prodcutor");
+                pc.addQueue(url);
                 try {
                     sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                //System.out.println("Fin de Hilo productor"); 
+                System.out.println("Fin de Hilo productor"); 
             }         
     }

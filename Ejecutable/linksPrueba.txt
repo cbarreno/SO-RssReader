@@ -1,0 +1,4 @@
+http://www.20minutos.es/rss
+http://www.20minutos.es/rss/artes
+http://www.20minutos.es/rss/artrend
+http://www.20minutos.es/rss/ciencia

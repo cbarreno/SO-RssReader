@@ -13,11 +13,12 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class Cronometro extends Thread {
-    
+
     public Cronometro(){
         
     }
-    
+
+
     public void run(){
         Integer minutos = JavaApplication1.tiempoConexion , segundos = 0, milesimas = 0;
         //min es minutos, seg es segundos y mil es milesimas de segundo
@@ -36,6 +37,10 @@ public class Cronometro extends Thread {
                 //y las milesimas de segundo de nuevo a 0
                 if( milesimas == 1000 )
                 {
+                    if(minutos==0 && segundos ==0){
+                    GUI.MostrarFeed();
+                    minutos = JavaApplication1.tiempoConexion;
+                    }
                     if( segundos == 0 )
                     {
                         segundos = 60;
@@ -54,7 +59,7 @@ public class Cronometro extends Thread {
                 else min = minutos.toString();
                 if( segundos < 10 ) seg = "0" + segundos;
                 else seg = segundos.toString();
-
+                
                  
                 //Colocamos en la etiqueta la informacion
                 GUI.tiempo.setText( min + ":" + seg);                
