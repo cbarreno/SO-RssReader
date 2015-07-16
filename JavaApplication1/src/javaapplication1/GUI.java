@@ -6,6 +6,7 @@
 package javaapplication1;
 
 import java.awt.Color;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +17,7 @@ import javax.swing.JTextArea;
  *
  * @author adrian
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI extends JFrame {
     String url;
     /**
      * Creates new form GUI
@@ -172,72 +173,81 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
-        XmlParserRSS parser1=null,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null;
-        int j=0;
+        Productor parser1=null,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null;
+        LinkedList<String> copiaList;
+        String link;
         int i = JavaApplication1.ListURL.size();
         System.out.println(i);
-        if (!JavaApplication1.ListURL.isEmpty()){
+        copiaList = (LinkedList < String >)JavaApplication1.ListURL.clone();
+        if (!copiaList.isEmpty()){
             switch (i){
                 case 1:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        link = copiaList.remove();
+                        parser1 = new Productor(link);
                         parser1.start();
+                        break;  
                 case 2:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        link = copiaList.remove();
+                        parser1 = new Productor(link);
+                        link = copiaList.remove();
+                        parser2 = new Productor(link);
                         parser1.start();
                         parser2.start();
+                        break;  
                 case 3:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
                         parser1.start();
                         parser2.start();
                         parser3.start();
-    
+                        break;      
                 case 4:
 
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
                         parser1.start();
                         parser2.start();
                         parser3.start();
                         parser4.start();
+                        break;  
                 case 5:
 
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
                         parser1.start();
                         parser2.start();
                         parser3.start();
                         parser4.start();
                         parser5.start();
-
+                        break;  
                 case 6:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
+                        parser6 = new Productor(copiaList.remove());
                         parser1.start();
                         parser2.start();
                         parser3.start();
                         parser4.start();
                         parser5.start();
                         parser6.start();
+                        break;  
                 case 7:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser7 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
+                        parser6 = new Productor(copiaList.remove());
+                        parser7 = new Productor(copiaList.remove());
                         parser1.start();
                         parser2.start();
                         parser3.start();
@@ -245,15 +255,17 @@ public class GUI extends javax.swing.JFrame {
                         parser5.start();
                         parser6.start();
                         parser7.start();
+                        break;  
                 case 8:
-                        parser1 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser2 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser3 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser4 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser5 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser6 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser7 = new XmlParserRSS(JavaApplication1.ListURL.poll().toString());
-                        parser8 = new XmlParserRSS(link);
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
+                        parser6 = new Productor(copiaList.remove());
+                        parser7 = new Productor(copiaList.remove());
+                        parser8 = new Productor(copiaList.remove());
+                        parser1.start();
                         parser2.start();
                         parser3.start();
                         parser4.start();
@@ -261,90 +273,51 @@ public class GUI extends javax.swing.JFrame {
                         parser6.start();
                         parser7.start();
                         parser8.start();
+                        break;  
                 case 9:
-                    for(String link:JavaApplication1.ListURL )
-                    {
-                        switch(j){
-                            case 0:
-                                parser1 = new XmlParserRSS(link);
-                            case 1:
-                                parser2 = new XmlParserRSS(link);
-                            case 2:
-                                parser3 = new XmlParserRSS(link);
-                            case 3:
-                                parser4 = new XmlParserRSS(link);
-                            case 4:
-                                parser5 = new XmlParserRSS(link);
-                            case 5:
-                                parser6 = new XmlParserRSS(link);
-                            case 6:
-                                parser7 = new XmlParserRSS(link);
-                            case 7:
-                                parser8 = new XmlParserRSS(link);
-                            case 8:
-                                parser9 = new XmlParserRSS(link);
-                        }
-                        j++;
-                    }
-                    parser1.start();
-                    parser2.start();
-                    parser3.start();
-                    parser4.start();
-                    parser5.start();
-                    parser6.start();
-                    parser7.start();
-                    parser8.start();
-                    parser9.start();
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
+                        parser6 = new Productor(copiaList.remove());
+                        parser7 = new Productor(copiaList.remove());
+                        parser8 = new Productor(copiaList.remove());
+                        parser9 = new Productor(copiaList.remove());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+                        parser6.start();
+                        parser7.start();
+                        parser8.start();
+                        parser9.start();
+                        break;  
                 case 10:
-                    for(String link:JavaApplication1.ListURL )
-                    {
-                        switch(j){
-                            case 0:
-                                parser1 = new XmlParserRSS(link);
-                            case 1:
-                                parser2 = new XmlParserRSS(link);
-                            case 2:
-                                parser3 = new XmlParserRSS(link);
-                            case 3:
-                                parser4 = new XmlParserRSS(link);
-                            case 4:
-                                parser5 = new XmlParserRSS(link);
-                            case 5:
-                                parser6 = new XmlParserRSS(link);
-                            case 6:
-                                parser7 = new XmlParserRSS(link);
-                            case 7:
-                                parser8 = new XmlParserRSS(link);
-                            case 8:
-                                parser9 = new XmlParserRSS(link);
-                            case 9:
-                                parser10 = new XmlParserRSS(link);
-                        }
-                        j++;
+                        parser1 = new Productor(copiaList.remove());
+                        parser2 = new Productor(copiaList.remove());
+                        parser3 = new Productor(copiaList.remove());
+                        parser4 = new Productor(copiaList.remove());
+                        parser5 = new Productor(copiaList.remove());
+                        parser6 = new Productor(copiaList.remove());
+                        parser7 = new Productor(copiaList.remove());
+                        parser8 = new Productor(copiaList.remove());
+                        parser9 = new Productor(copiaList.remove());
+                        parser10 = new Productor(copiaList.remove());
+                        parser1.start();
+                        parser2.start();
+                        parser3.start();
+                        parser4.start();
+                        parser5.start();
+                        parser6.start();
+                        parser7.start();
+                        parser8.start();
+                        parser9.start();
+                        parser10.start();
+                        break;  
                     }
-                    parser1.start();
-                    parser2.start();
-                    parser3.start();
-                    parser4.start();
-                    parser5.start();
-                    parser6.start();
-                    parser7.start();
-                    parser8.start();
-                    parser9.start();
-                    parser10.start();
-                }
-            }
-           
-        System.out.println(JavaApplication1.ListURL.size());
-        while (!JavaApplication1.pilaFeed.isEmpty()){
-                RSS message;
-                message = (RSS)JavaApplication1.pilaFeed.pop();            
-                Texto.append(message.toString());
-                Texto.append("\n");
-
-            }
-        
-        
+            }        
     }//GEN-LAST:event_Boton_refrescarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -439,7 +412,7 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton Boton_refrescar;
     private static javax.swing.JPanel Panel;
-    private static javax.swing.JTextArea Texto;
+    public static javax.swing.JTextArea Texto;
     private static javax.swing.JTextField Texturl;
     private static javax.swing.JButton jButton1;
     private static javax.swing.JMenu jMenu1;
