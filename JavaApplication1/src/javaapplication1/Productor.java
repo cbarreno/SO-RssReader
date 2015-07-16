@@ -22,23 +22,14 @@ public class Productor extends Thread{
             JavaApplication1.pilaFeed.push(message);
         }
     }
-    
-    public synchronized void getData(){
-        while (!JavaApplication1.pilaFeed.isEmpty()){
-                    RSS message;
-                    message = (RSS)JavaApplication1.pilaFeed.pop();            
-                    GUI.Texto.append(message.toString());
-                    GUI.Texto.append("\n");
 
-                }
-    }
     @Override
     public void run(){
-        System.out.println("Inicio hilo");
+        System.out.println("Inicio hilo prodcutor");
         XmlParserRSS parser = new XmlParserRSS(url);
         Feed feed = parser.readFeed();
         addStack(feed);
-        System.out.println("Fin de hilo");
-        getData();
+        System.out.println("Fin de Hilo productor");       
+                
     }
 }

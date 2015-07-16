@@ -7,6 +7,8 @@ package javaapplication1;
 
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -174,6 +176,7 @@ public class GUI extends JFrame {
 
     private void Boton_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_refrescarActionPerformed
         Productor parser1=null,parser2=null,parser3=null,parser4=null,parser5=null,parser6=null,parser7=null,parser8=null,parser9=null,parser10=null;
+        Consumidor consu1=null,consu2=null,consu3=null,consu4=null,consu5=null,consu6=null,consu7=null,consu8=null,consu9=null,consu10=null;
         LinkedList<String> copiaList;
         String link;
         int i = JavaApplication1.ListURL.size();
@@ -185,6 +188,19 @@ public class GUI extends JFrame {
                         link = copiaList.remove();
                         parser1 = new Productor(link);
                         parser1.start();
+                        
+                        consu1= new Consumidor();
+                        consu1.start();
+                        while(parser1.isAlive()){
+                            try {
+                                consu1.wait();
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            }
+                        
+                        
+                       
                         break;  
                 case 2:
                         link = copiaList.remove();
@@ -193,6 +209,11 @@ public class GUI extends JFrame {
                         parser2 = new Productor(link);
                         parser1.start();
                         parser2.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        
                         break;  
                 case 3:
                         parser1 = new Productor(copiaList.remove());
@@ -201,6 +222,12 @@ public class GUI extends JFrame {
                         parser1.start();
                         parser2.start();
                         parser3.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
                         break;      
                 case 4:
 
@@ -212,6 +239,14 @@ public class GUI extends JFrame {
                         parser2.start();
                         parser3.start();
                         parser4.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
                         break;  
                 case 5:
 
@@ -225,6 +260,17 @@ public class GUI extends JFrame {
                         parser3.start();
                         parser4.start();
                         parser5.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        
                         break;  
                 case 6:
                         parser1 = new Productor(copiaList.remove());
@@ -239,6 +285,18 @@ public class GUI extends JFrame {
                         parser4.start();
                         parser5.start();
                         parser6.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu6=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        consu6.start();
                         break;  
                 case 7:
                         parser1 = new Productor(copiaList.remove());
@@ -255,6 +313,20 @@ public class GUI extends JFrame {
                         parser5.start();
                         parser6.start();
                         parser7.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu6=new Consumidor();
+                        consu7=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        consu6.start();
+                        consu7.start();
                         break;  
                 case 8:
                         parser1 = new Productor(copiaList.remove());
@@ -273,6 +345,22 @@ public class GUI extends JFrame {
                         parser6.start();
                         parser7.start();
                         parser8.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu6=new Consumidor();
+                        consu7=new Consumidor();
+                        consu8=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        consu6.start();
+                        consu7.start();
+                        consu8.start();
                         break;  
                 case 9:
                         parser1 = new Productor(copiaList.remove());
@@ -293,6 +381,24 @@ public class GUI extends JFrame {
                         parser7.start();
                         parser8.start();
                         parser9.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu6=new Consumidor();
+                        consu7=new Consumidor();
+                        consu8=new Consumidor();
+                        consu9=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        consu6.start();
+                        consu7.start();
+                        consu8.start();
+                        consu9.start();
                         break;  
                 case 10:
                         parser1 = new Productor(copiaList.remove());
@@ -315,6 +421,26 @@ public class GUI extends JFrame {
                         parser8.start();
                         parser9.start();
                         parser10.start();
+                        consu1=new Consumidor();
+                        consu2=new Consumidor();
+                        consu3= new Consumidor();
+                        consu4=new Consumidor();
+                        consu5=new Consumidor();
+                        consu6=new Consumidor();
+                        consu7=new Consumidor();
+                        consu8=new Consumidor();
+                        consu9=new Consumidor();
+                        consu10=new Consumidor();
+                        consu1.start();
+                        consu2.start();
+                        consu3.start();
+                        consu4.start();
+                        consu5.start();
+                        consu6.start();
+                        consu7.start();
+                        consu8.start();
+                        consu9.start();
+                        consu10.start();
                         break;  
                     }
             }        

@@ -26,7 +26,7 @@ public class JavaApplication1 {
         
         //LinkedList 
         GUI gui=new GUI();
-        // long initialTime = System.currentTimeMillis();        
+        // long initialTime = System.currentTimeMillis();       http://www.20minutos.es/rss/artrend
         
         // XmlParserRSS parser1 = new XmlParserRSS("http://www.eluniverso.com/rss/opinion.xml");
         // XmlParserRSS parser2 = new XmlParserRSS("http://rss.cnn.com/rss/edition.rss");        
